@@ -5,6 +5,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -13,7 +14,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class GreetingsController {
 
-    private static final AtomicLong REQ_COUNTER = new AtomicLong(0l);
+    private static final AtomicLong REQ_COUNTER = new AtomicLong(0L);
+
 
     @RequestMapping("/greet")
     public Greeting getGreeted(){
@@ -21,4 +23,5 @@ public class GreetingsController {
         long requestId = REQ_COUNTER.incrementAndGet();
         return new Greeting(requestId, randomName);
     }
+
 }
